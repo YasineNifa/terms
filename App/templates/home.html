@@ -47,7 +47,7 @@
 
         <div class="mb-3">
           <label class="form-label">Message</label>
-          <textarea class="form-control is-valid" name="subject" type="text" placeholder="Type your message ..."
+          <textarea class="form-control is-valid" name="message" type="text" placeholder="Type your message ..."
             required></textarea>
         </div>
 
@@ -67,6 +67,15 @@
         </div>
       </form>
     </div>
+
+    {% for message in messages %}
+      {% if message.tags == 'success' %}
+        <div class="alert alert.success text-center" role="alert">
+          {{message}}
+        </div>
+
+      {% endif %}
+    {% endfor %}
   </div>
   <footer class="bg-dark text-center text-lg-start" id="footer" style="color: #fff">
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
